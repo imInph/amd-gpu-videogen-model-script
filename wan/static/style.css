@@ -14,11 +14,18 @@ button {
     cursor: pointer;
 }
 
-input {
+.promptInput {
     padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 200px;
+    border-radius: 25px;
+    width: 40%;
+    font-size: 16px;
+    font-family: inherit;
+    resize: none;
+    overflow: hidden;
+    box-sizing: border-box;
+    min-height: 42px;
+    vertical-align: top;
 }
 
 label {

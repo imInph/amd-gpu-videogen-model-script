@@ -1,6 +1,12 @@
 const button = document.getElementById("generateButton");
 const video = document.getElementById("resultVideo");
 const statusText = document.getElementById("status");
+const promptInput = document.getElementById("prompt");
+
+promptInput.addEventListener("input", function() {
+    this.style.height = "auto";
+    this.style.height = this.scrollHeight + "px";
+});
 
 function showStatus(message) {
     if (statusText) statusText.textContent = message;
