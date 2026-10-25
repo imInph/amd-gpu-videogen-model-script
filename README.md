@@ -2,6 +2,8 @@
 
 Personal experiment, shared as-is. Not actively maintained; expect rough edges and hardware-specific settings.
 
+Backend made by Codex.
+
 Run ModelScope 1.7B and Wan2.2 5B locally with an AMD GPU.
 Built around an RX 6700 XT 12GB, Linux, ROCm 7.1, and roughly 40GB RAM.
 
