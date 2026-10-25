@@ -11,7 +11,7 @@ from flask import Flask, jsonify, request, send_from_directory
 app = Flask(__name__)
 BASE = Path(__file__).resolve().parent
 SCRIPT = BASE / "generate.py"
-VIDEOS = BASE / "videos"
+VIDEOS = BASE / "static" / "output"
 run_lock = threading.Lock()
 output = deque(maxlen=200)
 status = {"state": "idle", "file_path": None, "video_url": None, "error": None}
@@ -30,7 +30,7 @@ def generate():
     try:
         output.clear()
         status.update(state="running", file_path=None, video_url=None, error=None)
-        VIDEOS.mkdir(exist_ok=True)
+        VIDEOS.mkdir(parents=True, exist_ok=True)
         folder = Path(tempfile.mkdtemp(prefix="run-", dir=VIDEOS))
         command = [sys.executable, "-u", str(SCRIPT), f"--output-dir={folder}"]
         # Only pass supported options. generate.py handles their types/defaults.
@@ -71,4 +71,4 @@ def video(filename):
 
 
 if __name__ == "__main__":
-    app.run(host="127.0.0.1", port=5000, threaded=True, use_reloader=False)
+    app.run(host="0.0.0.0", port=5000, threaded=True, use_reloader=False)

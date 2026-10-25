@@ -17,7 +17,7 @@ from diffusers import AutoencoderKLWan, WanPipeline
 from diffusers.utils import export_to_video
 
 MODEL_ID = "Wan-AI/Wan2.2-TI2V-5B-Diffusers"
-DEFAULT_OUTPUT = Path(__file__).resolve().parents[1] / "artifacts" / "wan"
+DEFAULT_OUTPUT = Path(__file__).resolve().parent / "static" / "output"
 DEFAULT_PROMPT = (
     "2D anime, crisp outlines and cel shading. An adult silver-haired "
     "swordswoman on a city rooftop at night. Her red scarf flutters in "
